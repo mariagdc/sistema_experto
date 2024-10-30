@@ -4,9 +4,10 @@ from typing import Optional
 from enum import Enum
 import uuid
 import json
+import uvicorn  # Asegúrate de tener uvicorn instalado para ejecutar la aplicación
 
 # Cargar el archivo JSON para el árbol de decisiones
-with open("./SIstemaExperto-SubdominioTurismo.json", "r") as f:
+with open("C:\\Users\\Alumno\\Desktop\\python\\sistema_experto\\sistema_experto2.json", "r") as f:
     decision_tree = json.load(f)
 
 app = FastAPI()
@@ -102,3 +103,6 @@ async def get_current_question(session_id: str):
         result = session_data["result"]
         return ResultResponse(name=result["name"], description=result["description"])
     raise HTTPException(status_code=404, detail="Sesión no encontrada o sin preguntas.")
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
