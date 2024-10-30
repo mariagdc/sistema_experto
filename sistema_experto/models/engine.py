@@ -1,8 +1,8 @@
 from typing import List
-from base import BaseConocimientos
-from entry import Entry
-from property import Property
-from response import Response
+from models.base import BaseConocimientos
+from models.entry import Entry
+from models.property import Property
+from models.response import Response
 
 
 # Método temporal para usar sólo con CLI

@@ -1,5 +1,5 @@
 from typing import List
-from property import Property
+from models.property import Property
 
 
 class Entry:

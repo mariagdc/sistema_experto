@@ -1,5 +1,5 @@
 from typing import List
-from entry import Entry
+from models.entry import Entry
 from io import open
 import json
 
