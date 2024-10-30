@@ -15,8 +15,8 @@ pipenv install diffusers["torch"] transformers
 ```
 
 
- pip install fastapi pydantic
- pip install uvicorn
+ pip install fastapi pydantic uvicorn
+ pip install 
 
 uvicorn sistema_experto.app:app --reload
 
