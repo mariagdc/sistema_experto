@@ -27,7 +27,7 @@ pipenv shell
 uvicorn app:app --reload
 ```
 
-## Corriendo la aplicación
+## Conversación con la doña
 
 https://chatgpt.com/share/672276a7-2c38-800f-9fff-2a04718cec75
 
