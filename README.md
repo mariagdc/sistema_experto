@@ -31,4 +31,6 @@ uvicorn app:app --reload
 
 https://chatgpt.com/share/672276a7-2c38-800f-9fff-2a04718cec75
 
+## Procesamiento y Organización del Conocimiento en SE 
+https://lucid.app/lucidchart/a8b92382-2815-4d22-bfdd-b36ab5c4c92f/edit?viewport_loc=-823%2C-980%2C4153%2C1828%2C0_0&invitationId=inv_5cfec106-6814-47db-8304-6581c9eae058 
 
