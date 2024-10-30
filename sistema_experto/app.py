@@ -4,11 +4,13 @@ from typing import Optional
 from enum import Enum
 import json
 import uvicorn  
-from models.engine import engine
+from models.engine import Engine
 from models.response import Response
 
 # Cargar el archivo JSON para el árbol de decisiones
 fichero=".\\datas\\sistema_experto.json"
+
+engine = Engine() 
 
 app = FastAPI()
 
@@ -25,17 +27,17 @@ class UserResponse(BaseModel):
 
 
 @app.get("/prueba")
-async def start_conversation():
-    return "hola";
+async def prueba():
+    return {"mensaje": "hola"}
 
 @app.get("/comenzar")
-async def start_conversation():
+async def comenzar_conversation():
     engine.base.from_json(fichero)
     engine.questions = engine.generate()
     return siguiente_pregunta()
 
-@app.get("/consulta")
-async def get_current_question(request: UserResponse):
+@app.post("/consulta")
+async def post_current_question(request: UserResponse):
     if not hasattr(engine, 'questions'):
         raise HTTPException(status_code=400, detail="La consulta no ha sido iniciada. Llame primero a /consultar/iniciar.")
  

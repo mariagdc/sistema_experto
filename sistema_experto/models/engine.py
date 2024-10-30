@@ -5,6 +5,7 @@ from models.property import Property
 from models.response import Response
 
 
+
 # Método temporal para usar sólo con CLI
 def _get_user_response(prop: Property) -> Response:
     """
