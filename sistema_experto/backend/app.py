@@ -7,12 +7,24 @@ import uvicorn
 from models.engine import Engine
 from models.response import Response
 
+from fastapi.middleware.cors import CORSMiddleware
+
+
+
 # Cargar el archivo JSON para el árbol de decisiones
 fichero=".\\datas\\sistema_experto.json"
 
 engine = Engine() 
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class Response(str, Enum):
     YES = "Sí"
