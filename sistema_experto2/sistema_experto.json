@@ -28,6 +28,9 @@
       "Le interesa lo cultural",
       "Le interesa la Aventura",
       "Le gusta la gastronomia"
+
+
+        
       ]
     }, 
     {
@@ -80,6 +83,8 @@
       "props": [
         "Es Turista",
         "Viaja solo"
+      
+      
       ]
     },
     {
@@ -87,12 +92,14 @@
       "description": "Lo invitamos a revisar la agenda cultural de la ciudad en el siguiente link https://turismoushuaia.com/contenidos/agenda-cultural/ y se sugiere la siguiente excursion Sunset Kayaking Ushuaia un paseo apto a todos los públicos y edades",
       "props": [
         "Visita Familia"
+        
       ]
     },
     {
       "name": "Paquete Una vuelta",
       "description": "- Se sugiere: Ushuaia City Tour, Excursión Parque Nacional con Tren del Fin del Mundo con guia Excursión Navegación Canal de Beagle (Lobos, Pájaros, Faro Les Eclaireurs) - Excursion Estancia Harberton y Caminata con Pinguinos -(terrestre). ",
       "props": [
+        
         "Se queda mas de 3 dias"
       ]
     }, 

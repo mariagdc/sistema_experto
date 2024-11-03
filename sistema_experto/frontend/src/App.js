@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [question, setQuestion] = useState('');
@@ -9,41 +10,58 @@ function App() {
 
   // Iniciar la conversación al montar el componente
   useEffect(() => {
-    if (conversationStarted) {
+    if (conversationStarted && userResponse !== null) 
+    { 
       fetchNextQuestion();
     }
-  }, [conversationStarted]);
+  }, [conversationStarted, userResponse]);
 
-  const startConversation = async () => {
+  const startConversation = async () => 
+  {
     setLoading(true);
     setError('');
     setConversationStarted(true);
-    try {
+
+    try 
+    {
       const response = await fetch('http://127.0.0.1:8000/comenzar');
       const data = await response.json();
       setQuestion(data.pregunta);
-    } catch (error) {
+    } 
+    catch (error) 
+    {
       setError('Error al iniciar la conversación.');
-    } finally {
+    } 
+    finally 
+    {
       setLoading(false);
     }
   };
 
-  const fetchNextQuestion = async () => {
+  const fetchNextQuestion = async () => 
+    {
     setLoading(true);
     setError('');
-    try {
-      const response = await fetch('http://127.0.0.1:8000/consulta', {
+
+    try 
+    {
+
+      const response = await fetch('http://127.0.0.1:8000/consulta', 
+      {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ response: userResponse }),
       });
+
       const data = await response.json();
-      if (data.pregunta) {
+      if (data.pregunta) 
+      {
         setQuestion(data.pregunta);
-      } else {
+      } 
+      else 
+      {
         setQuestion('Conversación finalizada. ' + data.resultado);
       }
     } catch (error) {
@@ -59,19 +77,36 @@ function App() {
   };
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>Chatbot de Sistema Experto</h1>
-      {!conversationStarted ? (
-        <button onClick={startConversation}>Iniciar Conversación</button>
-      ) : (
+    <div className='container' style={{ padding: '20px' }}>
+
+      <div className="jumbotron">
+     
+        <h1 className="display-4">Chatbot de Sistema Experto</h1>
+        
+      </div>
+
+      <hr className="my-4"></hr>
+
+      {!conversationStarted ? 
+      (
+        <div className='col text-center'>
+          <button className='btn btn-primary text-center' onClick={startConversation}>Iniciar Conversación</button>
+        </div>
+      ) 
+      :
+      (
         <>
           {loading && <p>Cargando...</p>}
+          
           {error && <p style={{ color: 'red' }}>{error}</p>}
+
           {question && (
-            <div>
+            <div className='col text-center'>
               <p>{question}</p>
-              <button onClick={() => handleUserResponse(true)}>Sí</button>
-              <button onClick={() => handleUserResponse(false)}>No</button>
+              <div className='col p-3 m-3'>
+                <button className='btn btn-primary m-3' onClick={() => handleUserResponse(true)}>Sí</button>
+                <button className='btn btn-primary m-3' onClick={() => handleUserResponse(false)}>No</button>
+              </div>
             </div>
           )}
         </>

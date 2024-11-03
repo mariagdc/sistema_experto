@@ -1,25 +1,21 @@
 {
+    "__v": 1,
+    "description": "Base de conocimiento Sistema Experto Prueba",
     "entries": [
         {
-            "name": "C",
-            "description": "C",
-            "props": ["A", "B"]
+            "name": "D",
+            "description": "D",
+            "props": ["B", "A"]
         },
         {
-            "name": "D",
-            "description": "d",
+            "name": "B",
+            "description": "B",
             "props": ["A"]
         },
         {
             "name": "F",
             "description": "F",
-            "props": ["E"]
-        }
-        ,
-        {
-            "name": "G",
-            "description": "g",
-            "props": [""]
+            "props": ["C"]
         }
     ]
 }
