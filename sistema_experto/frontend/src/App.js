@@ -7,13 +7,6 @@ function App() {
   const [conversationStarted, setConversationStarted] = useState(false);
   const [error, setError] = useState('');
 
-  // Iniciar la conversación al montar el componente
-  useEffect(() => {
-    if (conversationStarted) {
-      fetchNextQuestion();
-    }
-  }, [conversationStarted]);
-
   const startConversation = async () => {
     setLoading(true);
     setError('');
@@ -57,6 +50,13 @@ function App() {
     setUserResponse(response);
     fetchNextQuestion();
   };
+
+  // Iniciar la conversación al montar el componente
+  useEffect(() => {
+    if (conversationStarted) {
+      fetchNextQuestion();
+    }
+  }, [conversationStarted]);
 
   return (
     <div style={{ padding: '20px' }}>
