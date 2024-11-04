@@ -100,5 +100,5 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 Ejemplo: asignando las clases btn btn-primary a un boton.
 ```
-<button class='btn btn-primary' onClick={() => handleUserResponse(true)}>Sí</button>
+<button className='btn btn-primary' onClick={() => handleUserResponse(true)}>Sí</button>
 ```

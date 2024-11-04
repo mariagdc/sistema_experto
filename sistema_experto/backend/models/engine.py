@@ -4,8 +4,6 @@ from models.entry import Entry
 from models.property import Property
 from models.response import Response
 
-
-
 # Método temporal para usar sólo con CLI
 def _get_user_response(prop: Property) -> Response:
     """
@@ -24,7 +22,6 @@ def _get_user_response(prop: Property) -> Response:
     if response == 's':
         return Response.YES
     return Response.NO
-
 
 class Engine:
     """
@@ -104,7 +101,7 @@ class Engine:
 
                 yield prop
 
-                if self.response == Response.YES:
+                if self.response == 'Sí':#Response.YES:
                     self.accepted_properties.append(prop)
                 else:
                     self.denied_properties.append(prop)

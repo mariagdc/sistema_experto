@@ -10,7 +10,7 @@ from models.response import Response
 from fastapi.middleware.cors import CORSMiddleware
 
 # Cargar el archivo JSON para el árbol de decisiones
-fichero=".\\datas\\sistema_experto3.json"
+fichero=".\\datas\\sistema_experto2.json"
 
 #engine = Engine() 
 

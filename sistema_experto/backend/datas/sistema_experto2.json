@@ -5,17 +5,22 @@
         {
             "name": "D",
             "description": "D",
-            "props": ["B", "A"]
+            "props": ["A","B"]
+        },       
+        {
+            "name": "E",
+            "description": "E",
+            "props": ["A","B"]
         },
         {
-            "name": "B",
-            "description": "B",
-            "props": ["A"]
+            "name": "G",
+            "description": "G",
+            "props": ["A","C"]
         },
         {
             "name": "F",
             "description": "F",
-            "props": ["C"]
+            "props": ["A","C"]
         }
     ]
 }
