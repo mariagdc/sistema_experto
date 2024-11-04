@@ -6,25 +6,6 @@ from models.response import Response
 
 
 
-# Método temporal para usar sólo con CLI
-def _get_user_response(prop: Property) -> Response:
-    """
-    Obtener confirmación del usuario si cierta propiedad debe ser considerada
-
-    :param prop: Propiedad a preguntar
-    :return: Respuesta de confirmación o rechazo
-    """
-    prompt_str = "¿Es/Tiene " + prop.name + "? (s/n): "
-    response = input(prompt_str).strip().lower()
-
-    while response != 's' and response != 'n':
-        prompt_str = "Ingrese una respuesta válida (s/n): "
-        response = input(prompt_str).strip().lower()
-
-    if response == 's':
-        return Response.YES
-    return Response.NO
-
 
 class Engine:
     """
@@ -40,42 +21,6 @@ class Engine:
         self.denied_properties: List[Property] = []
         self.response: Response = False
         self.result: Entry or None = None
-
-    def start(self) -> Entry or None:
-        """
-        Obtener una entrada en base a propiedades que ingrese el usuario
-
-        :return: Entrada que coincida con las propiedades. None si no coincide ninguna
-        """
-        self.accepted_properties: List[Property] = []
-        self.denied_properties: List[Property] = []
-
-        for entry in self.base.entries:
-
-            correct_entry = True
-
-            if self._check_rule_2(entry) is False:
-                continue
-
-            if self._check_rule_3(entry) is False:
-                continue
-
-            for prop in entry.properties:
-                if self._check_rule_1(prop) is False:
-                    continue
-
-                response = _get_user_response(prop)
-                if response == True:
-                    self.accepted_properties.append(prop)
-                else:
-                    self.denied_properties.append(prop)
-                    correct_entry = False
-                    break
-
-            if correct_entry is True:
-                return entry
-
-        return None
 
     def generate(self):
         """
@@ -104,7 +49,7 @@ class Engine:
 
                 yield prop
 
-                if self.response == True:   #Response.YES
+                if self.response is True:   #Response.YES
                     self.accepted_properties.append(prop)
                 else:
                     self.denied_properties.append(prop)
