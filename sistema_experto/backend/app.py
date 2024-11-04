@@ -12,7 +12,7 @@ from fastapi.middleware.cors import CORSMiddleware
 # Cargar el archivo JSON para el árbol de decisiones
 fichero=".\\datas\\sistema_experto2.json"
 
-#engine = Engine() 
+engine = Engine() 
 
 app = FastAPI()
 
@@ -24,9 +24,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-class Response(str, Enum):
+""" class Response(str, Enum):
     YES = "Sí"
     NO = "No"
+    """
 
 # Modelos de Pydantic para los datos
 class FilenameRequest(BaseModel):
@@ -37,8 +38,8 @@ class UserResponse(BaseModel):
 
 @app.get("/comenzar")
 async def comenzar_conversation():
-    global engine
-    engine = Engine() 
+  #  global engine
+  #  engine = Engine() 
     engine.base.from_json(fichero)
     engine.questions = engine.generate()
     return siguiente_pregunta()
@@ -50,7 +51,7 @@ async def post_current_question(request: UserResponse):
         raise HTTPException(status_code=400, detail="La consulta no ha sido iniciada. Llame primero a /consultar/iniciar.")
  
     # Configura la respuesta del usuario en el motor
-    engine.set_response(Response.YES if request.response else Response.NO)
+    engine.set_response( request.response)#Response.YES if request.response else Response.NO)
 
     return siguiente_pregunta()
 

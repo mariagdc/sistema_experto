@@ -6,21 +6,21 @@
             "name": "D",
             "description": "D",
             "props": ["A","B"]
-        },       
+        },  
         {
             "name": "E",
             "description": "E",
-            "props": ["A","B"]
-        },
-        {
-            "name": "G",
-            "description": "G",
-            "props": ["A","C"]
+            "props": ["A"]
         },
         {
             "name": "F",
             "description": "F",
-            "props": ["A","C"]
+            "props": ["C"]
+        },    
+        {
+            "name": "G",
+            "description": "G",
+            "props": [""]
         }
     ]
 }
